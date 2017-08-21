@@ -1,13 +1,22 @@
-# docker-presto
+# docker-prestodb
 
-This is a docker image for [PrestoDB](https://prestodb.io/).
-
-## Prerequisites
-
-* docker v1.13.0+
+This is a docker image for [PrestoDB](https://prestodb.io/) with [Hive connector](https://prestodb.io/docs/current/connector/hive.html).
 
 ## Configuration
 
-The default configuration files are for hive connector only. See https://prestodb.io/docs/current/installation/deployment.html
+It requires a working Hive cluster since the default configuration files are for hive connector only. See https://prestodb.io/docs/current/installation/deployment.html Where it assumes Hive metastore listens on `thrift://hive-metastore:9083`
 
-In runtime, it can override default configuration by binding new directory under `/opt/presto/etc`
+## Start
+
+```SHELL
+docker run -d -p 8080:8080 shawnzhu/prestodb:0.181
+``` 
+
+## Customize
+
+It's capable to change configuration like `hive.metastore.uri` by binding new directory under `/opt/presto/etc`. E.g., given configuration file `/foo/bar/hive.properties`:
+
+```SHELL
+docker run -d -p 8080:8080 -v /foo/bar/hive.properties:/opt/presto/etc/catalog/hive.properties:ro shawnzhu/prestodb:0.181
+``` 
+
