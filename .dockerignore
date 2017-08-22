@@ -1,0 +1,6 @@
+spec/
+.git
+.gitignore
+.travis.yml
+Gemfile
+Gemfile.lock
