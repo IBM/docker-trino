@@ -1,5 +1,8 @@
 # docker-prestodb
 
+[![Build Status](https://travis-ci.org/shawnzhu/docker-prestodb.svg?branch=master)](https://travis-ci.org/shawnzhu/docker-prestodb)
+[![Docker Build Statu](https://img.shields.io/docker/build/shawnzhu/prestodb.svg)](https://hub.docker.com/r/shawnzhu/prestodb/)
+
 This is a docker image for [PrestoDB](https://prestodb.io/) with [Hive connector](https://prestodb.io/docs/current/connector/hive.html).
 
 ## Configuration
