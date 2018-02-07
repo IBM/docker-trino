@@ -9,7 +9,7 @@ describe 'shawnzhu/prestodb' do
     set :docker_image, image.id
   end
 
-  describe file('/opt/presto-server-0.183') do
+  describe file('/opt/presto-server-0.193') do
     it { should be_directory }
   end
 
