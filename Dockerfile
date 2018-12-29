@@ -1,5 +1,6 @@
 FROM bde2020/hadoop-base:1.1.0-hadoop2.8-java8
-MAINTAINER kzhu
+
+LABEL MAINTAINER=shawnzhu@users.noreply.github.com
 
 ENV PRESTO_VERSION=0.193
 ENV PRESTO_HOME=/opt/presto
