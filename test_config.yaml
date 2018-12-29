@@ -1,0 +1,27 @@
+schemaVersion: "2.0.0"
+commandTests:
+- name: "ls /opt/presto/etc"
+  command: ls
+  args: ["/opt/presto/etc"]
+  expectedOutput:
+  - catalog
+  - config.properties
+  - jvm.config
+  - node.properties
+fileExistenceTests:
+- name: presto-server
+  path: /opt/presto-server-0.193
+- name: presto-home
+  path: /opt/presto
+metadataTest:
+  env:
+  - key: PRESTO_VERSION
+    value: 0.193
+  - key: PRESTO_HOME
+    value: /opt/presto
+  labels:
+  - key: "MAINTAINER"
+    value: "shawnzhu@users.noreply.github.com"
+  exposedPorts: ["8080"]
+  volumes: ["/opt/presto/etc", "/opt/presto/data"]
+  workdir: "/opt/presto"
