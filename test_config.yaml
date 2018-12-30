@@ -1,5 +1,15 @@
 schemaVersion: "2.0.0"
 commandTests:
+- name: jre
+  command: java
+  args: ["-version"]
+  expectedError:
+  - "1.8.0_181"
+- name: python2.7
+  command: python
+  args: ["--version"]
+  expectedError:
+  - "Python\\s2.7.*"
 - name: "ls /opt/presto/etc"
   command: ls
   args: ["/opt/presto/etc"]
