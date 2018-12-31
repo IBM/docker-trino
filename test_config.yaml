@@ -23,6 +23,8 @@ fileExistenceTests:
   path: /opt/presto-server-0.193
 - name: presto-home
   path: /opt/presto
+- name: presto-connector-db2
+  path: /opt/presto/plugin/db2
 metadataTest:
   env:
   - key: PRESTO_VERSION
