@@ -10,9 +10,9 @@ commandTests:
   args: ["--version"]
   expectedError:
   - "Python\\s2.7.*"
-- name: "ls /opt/presto/etc"
+- name: "ls /home/presto/etc"
   command: ls
-  args: ["/opt/presto/etc"]
+  args: ["/home/presto/etc"]
   expectedOutput:
   - catalog
   - config.properties
@@ -20,20 +20,20 @@ commandTests:
   - node.properties
 fileExistenceTests:
 - name: presto-server
-  path: /opt/presto-server-0.193
+  path: /home/presto/bin/launcher
 - name: presto-home
-  path: /opt/presto
+  path: /home/presto
 - name: presto-connector-db2
-  path: /opt/presto/plugin/db2
+  path: /home/presto/plugin/db2
 metadataTest:
   env:
   - key: PRESTO_VERSION
     value: 0.193
   - key: PRESTO_HOME
-    value: /opt/presto
+    value: /home/presto
   labels:
   - key: "MAINTAINER"
     value: "shawnzhu@users.noreply.github.com"
   exposedPorts: ["8080"]
-  volumes: ["/opt/presto/etc", "/opt/presto/data"]
-  workdir: "/opt/presto"
+  volumes: ["/home/presto/etc", "/home/presto/data"]
+  workdir: "/home/presto"
