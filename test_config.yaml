@@ -23,6 +23,8 @@ fileExistenceTests:
   path: /home/presto/bin/launcher
 - name: presto-home
   path: /home/presto
+  uid: 999
+  gid: 999
 - name: presto-connector-db2
   path: /home/presto/plugin/db2
 metadataTest:

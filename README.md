@@ -8,7 +8,7 @@ This is a docker image for [PrestoDB](https://prestodb.io/) with [Hive connector
 ## Start
 
 ```SHELL
-docker run -d -p 8080:8080 shawnzhu/prestodb:0.193
+docker run -d -p 8080:8080 shawnzhu/prestodb:latest
 ```
 
 ## Configuration
@@ -20,7 +20,7 @@ It requires a working Hive cluster since the default configuration files are for
 It's capable to change configuration like `hive.metastore.uri` by binding new directory under `/opt/presto/etc`. E.g., given configuration file `/foo/bar/hive.properties`:
 
 ```SHELL
-docker run -d -p 8080:8080 -v /foo/bar/hive.properties:/opt/presto/etc/catalog/hive.properties:ro shawnzhu/prestodb:0.193
+docker run -d -p 8080:8080 -v /foo/bar/hive.properties:/home/presto/etc/catalog/hive.properties:ro shawnzhu/prestodb:0.193
 ``` 
 
 ### DB2
@@ -38,5 +38,5 @@ connection-password=mypassword
 Then:
 
 ```SHELL
-docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/opt/presto/etc/catalog/db2.properties:ro shawnzhu/prestodb:0.193
+docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/home/presto/etc/catalog/db2.properties:ro shawnzhu/prestodb:latest
 ```
