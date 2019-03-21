@@ -2,7 +2,7 @@ FROM openjdk:8u181-jre-stretch
 
 LABEL MAINTAINER=shawnzhu@users.noreply.github.com
 
-ENV PRESTO_VERSION=0.193
+ENV PRESTO_VERSION=0.215
 ENV PRESTO_HOME=/home/presto
 
 # extra dependency for running launcher

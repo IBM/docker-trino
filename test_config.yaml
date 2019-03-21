@@ -30,7 +30,7 @@ fileExistenceTests:
 metadataTest:
   env:
   - key: PRESTO_VERSION
-    value: 0.193
+    value: 0.215
   - key: PRESTO_HOME
     value: /home/presto
   labels:
