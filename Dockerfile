@@ -2,7 +2,7 @@ FROM openjdk:8u181-jre-stretch
 
 LABEL MAINTAINER=shawnzhu@users.noreply.github.com
 
-ENV PRESTO_VERSION=0.215
+ENV PRESTO_VERSION=300
 ENV PRESTO_HOME=/home/presto
 
 # extra dependency for running launcher
@@ -15,7 +15,7 @@ RUN groupadd -g 999 presto && \
     useradd -r -u 999 -g presto --create-home --shell /bin/bash presto
 USER presto
 
-RUN curl -L https://repo1.maven.org/maven2/com/facebook/presto/presto-server/${PRESTO_VERSION}/presto-server-${PRESTO_VERSION}.tar.gz -o /tmp/presto-server.tgz && \
+RUN curl -L https://repo1.maven.org/maven2/io/prestosql/presto-server/${PRESTO_VERSION}/presto-server-${PRESTO_VERSION}.tar.gz -o /tmp/presto-server.tgz && \
     tar -xzf /tmp/presto-server.tgz --strip 1 -C ${PRESTO_HOME} && \
     mkdir -p ${PRESTO_HOME}/data && \
     rm -f /tmp/presto-server.tgz

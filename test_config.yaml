@@ -30,7 +30,7 @@ fileExistenceTests:
 metadataTest:
   env:
   - key: PRESTO_VERSION
-    value: 0.215
+    value: 300
   - key: PRESTO_HOME
     value: /home/presto
   labels:
@@ -39,3 +39,4 @@ metadataTest:
   exposedPorts: ["8080"]
   volumes: ["/home/presto/etc", "/home/presto/data"]
   workdir: "/home/presto"
+  entrypoint: ["./bin/launcher"]
