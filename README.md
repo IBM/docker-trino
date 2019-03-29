@@ -20,8 +20,8 @@ It requires a working Hive cluster since the default configuration files are for
 It's capable to change configuration like `hive.metastore.uri` by binding new directory under `/opt/presto/etc`. E.g., given configuration file `/foo/bar/hive.properties`:
 
 ```SHELL
-docker run -d -p 8080:8080 -v /foo/bar/hive.properties:/home/presto/etc/catalog/hive.properties:ro shawnzhu/prestodb:0.193
-``` 
+docker run -d -p 8080:8080 -v /foo/bar/hive.properties:/home/presto/etc/catalog/hive.properties:ro shawnzhu/prestodb:latest
+```
 
 ### DB2
 
