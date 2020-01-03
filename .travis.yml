@@ -1,7 +1,9 @@
 services:
 - docker
 
-install: docker build -t "shawnzhu/prestodb:$TRAVIS_BRANCH" .
+install:
+- curl -LO https://github.com/IBM/presto-db2/releases/download/325/presto-db2-325.zip
+- unzip presto-db2-325.zip
 
 before_script:
   curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 &&
@@ -10,4 +12,6 @@ before_script:
   export PATH=$PATH:$HOME/bin &&
   mv container-structure-test-linux-amd64 $HOME/bin/container-structure-test
 
-script: container-structure-test test --image shawnzhu/prestodb:$TRAVIS_BRANCH --config test_config.yaml
+script:
+- docker build -t "shawnzhu/prestodb:$TRAVIS_BRANCH" .
+- container-structure-test test --image shawnzhu/prestodb:$TRAVIS_BRANCH --config test_config.yaml
