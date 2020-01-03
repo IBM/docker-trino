@@ -1,42 +1,15 @@
 schemaVersion: "2.0.0"
-commandTests:
-- name: jre
-  command: java
-  args: ["-version"]
-  expectedError:
-  - "1.8.0_181"
-- name: python2.7
-  command: python
-  args: ["--version"]
-  expectedError:
-  - "Python\\s2.7.*"
-- name: "ls /home/presto/etc"
-  command: ls
-  args: ["/home/presto/etc"]
-  expectedOutput:
-  - catalog
-  - config.properties
-  - jvm.config
-  - node.properties
 fileExistenceTests:
-- name: presto-server
-  path: /home/presto/bin/launcher
 - name: presto-home
-  path: /home/presto
-  uid: 999
-  gid: 999
+  path: /usr/lib/presto
+  uid: 1000
+  gid: 1000
 - name: presto-connector-db2
-  path: /home/presto/plugin/db2
+  path: /usr/lib/presto/plugin/db2
+  uid: 1000
+  gid: 1000
 metadataTest:
   env:
-  - key: PRESTO_VERSION
-    value: 300
-  - key: PRESTO_HOME
-    value: /home/presto
-  labels:
-  - key: "MAINTAINER"
-    value: "shawnzhu@users.noreply.github.com"
+  - key: JAVA_HOME
+    value: /usr/lib/jvm/java-11
   exposedPorts: ["8080"]
-  volumes: ["/home/presto/etc", "/home/presto/data"]
-  workdir: "/home/presto"
-  entrypoint: ["./bin/launcher"]
