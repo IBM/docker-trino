@@ -5,6 +5,8 @@
 
 This is a docker image for [PrestoDB](https://prestosql.io/) with [Db2 connector](https://github.com/IBM/presto-db2/).
 
+**Notice**: it starts to switch the base image from openjdk to the official prestosql container image [`prestosql/presto`](https://hub.docker.com/r/prestosql/presto) since tag `325`.
+
 ## Start
 
 ```SHELL
