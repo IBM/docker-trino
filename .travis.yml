@@ -1,9 +1,13 @@
 services:
 - docker
 
+env:
+  global:
+  - PRESTOSQL_RELEASE=329
+
 install:
-- curl -LO https://github.com/IBM/presto-db2/releases/download/325/presto-db2-329.zip
-- unzip presto-db2-329.zip
+- curl -LO https://github.com/IBM/presto-db2/releases/download/${PRESTOSQL_RELEASE}/presto-db2-${PRESTOSQL_RELEASE}.zip
+- unzip presto-db2-${PRESTOSQL_RELEASE}.zip
 
 before_script:
   curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 &&
