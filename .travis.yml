@@ -2,8 +2,8 @@ services:
 - docker
 
 install:
-- curl -LO https://github.com/IBM/presto-db2/releases/download/325/presto-db2-325.zip
-- unzip presto-db2-325.zip
+- curl -LO https://github.com/IBM/presto-db2/releases/download/325/presto-db2-329.zip
+- unzip presto-db2-329.zip
 
 before_script:
   curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 &&
