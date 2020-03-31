@@ -3,7 +3,7 @@ services:
 
 env:
   global:
-  - PRESTOSQL_RELEASE=329
+  - PRESTOSQL_RELEASE=331
 
 install:
 - curl -LO https://github.com/IBM/presto-db2/releases/download/${PRESTOSQL_RELEASE}/presto-db2-${PRESTOSQL_RELEASE}.zip
