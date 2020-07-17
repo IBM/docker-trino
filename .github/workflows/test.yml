@@ -1,0 +1,36 @@
+name: test
+
+on: 
+  push:
+    paths-ignore:
+    - '**.md'
+  pull_request:
+    paths-ignore:
+    - '**.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      PRESTOSQL_RELEASE: 338
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: fetch dependency
+      run:  curl -LO https://github.com/IBM/presto-db2/releases/download/$PRESTOSQL_RELEASE/presto-db2-$PRESTOSQL_RELEASE.zip
+
+    - name: prepare dependency
+      run: unzip presto-db2-${PRESTOSQL_RELEASE}.zip
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1
+      with:
+        repository: shawnzhu/prestodb
+        tags: test-only
+        push: false
+
+    - uses: brpaz/structure-tests-action@v1.1.2
+      with:
+        image: "shawnzhu/prestodb:test-only"
+        configFile: test_config.yaml
