@@ -1,6 +1,6 @@
 # docker-prestodb
 
-[![Build Status](https://travis-ci.org/IBM/docker-prestodb.svg?branch=master)](https://travis-ci.org/IBM/docker-prestodb)
+[![Actions Status](https://github.com/IBM/docker-prestodb/workflows/test/badge.svg)](https://github.com/IBM/docker-prestodb/actions)
 [![Docker Build Statu](https://img.shields.io/docker/build/shawnzhu/prestodb.svg)](https://hub.docker.com/r/shawnzhu/prestodb/)
 
 This is a docker image for [PrestoDB](https://prestosql.io/) with [Db2 connector](https://github.com/IBM/presto-db2/).
