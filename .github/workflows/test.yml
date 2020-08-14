@@ -1,6 +1,6 @@
 name: test
 
-on: 
+on:
   push:
     paths-ignore:
     - '**.md'
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PRESTOSQL_RELEASE: 338
+      PRESTOSQL_RELEASE: 340
 
     steps:
     - uses: actions/checkout@v2
