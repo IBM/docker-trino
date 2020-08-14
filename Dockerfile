@@ -1,4 +1,4 @@
-FROM prestosql/presto:338
+FROM prestosql/presto:340
 
 # Add Db2 connector
-COPY --chown=presto:presto presto-db2-338 /usr/lib/presto/plugin/db2
+COPY --chown=presto:presto presto-db2-340 /usr/lib/presto/plugin/db2
