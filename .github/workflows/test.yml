@@ -29,7 +29,7 @@ jobs:
         repository: shawnzhu/prestodb
         tags: test-only
         push: false
-        build-args: PRESTO_VERSION=${PRESTO_VERSION}
+        build_args: PRESTO_VERSION=$PRESTO_VERSION
 
     - uses: brpaz/structure-tests-action@v1.1.2
       with:
