@@ -13,22 +13,23 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PRESTOSQL_RELEASE: 340
+      PRESTO_VERSION: 340
 
     steps:
     - uses: actions/checkout@v2
 
     - name: fetch dependency
-      run:  curl -LO https://github.com/IBM/presto-db2/releases/download/$PRESTOSQL_RELEASE/presto-db2-$PRESTOSQL_RELEASE.zip
+      run:  curl -LO https://github.com/IBM/presto-db2/releases/download/$PRESTO_VERSION/presto-db2-$PRESTO_VERSION.zip
 
     - name: prepare dependency
-      run: unzip presto-db2-${PRESTOSQL_RELEASE}.zip
+      run: unzip presto-db2-${PRESTO_VERSION}.zip
     - name: Build and push Docker images
       uses: docker/build-push-action@v1
       with:
         repository: shawnzhu/prestodb
         tags: test-only
         push: false
+        build-args: PRESTO_VERSION=${PRESTO_VERSION}
 
     - uses: brpaz/structure-tests-action@v1.1.2
       with:
