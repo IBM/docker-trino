@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PRESTO_VERSION: 340
+      PRESTO_VERSION: 347
 
     steps:
     - uses: actions/checkout@v2
