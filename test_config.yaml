@@ -12,7 +12,7 @@ fileExistenceTests:
   uid: 998
   gid: 996
 - name: presto-db2.jar
-  path: /usr/lib/presto/plugin/db2/presto-db2-340.jar
+  path: /usr/lib/presto/plugin/db2/presto-db2-347.jar
 metadataTest:
   env:
   - key: JAVA_HOME
