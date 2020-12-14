@@ -2,15 +2,15 @@ schemaVersion: "2.0.0"
 fileExistenceTests:
 - name: presto-home
   path: /usr/lib/presto
-  uid: 998
-  gid: 996
+  uid: 1000
+  gid: 1000
 - name: run-presto
   path: /usr/lib/presto/bin/run-presto
   permissions: '-rwxr-xr-x'
 - name: presto-connector-db2
   path: /usr/lib/presto/plugin/db2
-  uid: 998
-  gid: 996
+  uid: 1000
+  gid: 1000
 - name: presto-db2.jar
   path: /usr/lib/presto/plugin/db2/presto-db2-347.jar
 metadataTest:
