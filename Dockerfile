@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM prestosql/presto:347
+FROM prestosql/presto:${PRESTO_VERSION}
 
 USER root
 # Update centos packages
@@ -19,4 +19,4 @@ RUN dnf update -y
 
 USER presto:presto
 # Add Db2 connector
-COPY --chown=presto:presto presto-db2-347 /usr/lib/presto/plugin/db2
+COPY --chown=presto:presto presto-db2-${PRESTO_VERSION} /usr/lib/presto/plugin/db2
