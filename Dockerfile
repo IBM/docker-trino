@@ -11,13 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM prestosql/presto:347
 ARG PRESTO_VERSION
+
+FROM debian:buster-slim AS builder
+ARG PRESTO_VERSION
+
+RUN apt update && \
+    apt -y install wget unzip
+
+RUN wget -c https://github.com/IBM/presto-db2/releases/download/${PRESTO_VERSION}/presto-db2-${PRESTO_VERSION}.zip
+RUN unzip presto-db2-$PRESTO_VERSION.zip && rm -f presto-db2-$PRESTO_VERSION.zip
+
+
+FROM prestosql/presto:$PRESTO_VERSION
 
 USER root
 # Update centos packages
-RUN dnf update -y
+# RUN dnf upgrade -y && dnf autoremove
 
 USER presto:presto
 # Add Db2 connector
-COPY --chown=presto:presto presto-db2-${PRESTO_VERSION} /usr/lib/presto/plugin/db2
+COPY --from=builder --chown=presto:presto presto-db2-* /usr/lib/presto/plugin/db2
