@@ -7,6 +7,14 @@ This is a docker image for [PrestoDB](https://prestosql.io/) with [Db2 connector
 
 **Notice**: it starts to switch the base image from openjdk to the official prestosql container image [`prestosql/presto`](https://hub.docker.com/r/prestosql/presto) since tag `325`.
 
+## Build
+
+Run this command to build an image with prestodb release 347 and Db2 connector:
+
+```SHELL
+docker build --build-arg PRESTO_VERSION=347 -t "shawnzhu/prestodb:347" .
+```
+
 ## Start
 
 ```SHELL
