@@ -40,3 +40,9 @@ Then:
 ```SHELL
 docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/presto/default/etc/catalog/db2.properties:ro shawnzhu/prestodb:latest
 ```
+
+## Features
+
+### Graceful Shutdown
+
+Adds the [graceful shutdown](https://trino.io/docs/current/admin/graceful-shutdown.html) feature from Trino so that active queries have a grace period to finish before the worker node is shut down (like in a redeployment).
