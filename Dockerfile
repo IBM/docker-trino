@@ -33,5 +33,4 @@ USER presto:presto
 # Add Db2 connector
 COPY --from=builder --chown=presto:presto presto-db2-* /usr/lib/presto/plugin/db2
 
-RUN chmod +x ./run-presto.sh
-ENTRYPOINT ["./run-presto.sh"]
+CMD ["./run-presto.sh"]
