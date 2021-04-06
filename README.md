@@ -45,4 +45,4 @@ docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/presto/default/et
 
 ### Graceful Shutdown
 
-Adds the [graceful shutdown](https://trino.io/docs/current/admin/graceful-shutdown.html) feature from Trino so that active queries have a grace period to finish before the worker node is shut down (like in a redeployment).
+It adds the [graceful shutdown](https://trino.io/docs/current/admin/graceful-shutdown.html) feature from Trino such that on a SIGTERM signal to the container, the worker will have a grace period before interrupting active queries.
