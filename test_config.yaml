@@ -19,4 +19,4 @@ metadataTest:
     value: /usr/lib/jvm/zulu11
   exposedPorts: ["8080"]
   cmd:
-  - /usr/lib/presto/bin/run-presto
+  - ./run-presto.sh

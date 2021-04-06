@@ -40,3 +40,9 @@ Then:
 ```SHELL
 docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/presto/default/etc/catalog/db2.properties:ro shawnzhu/prestodb:latest
 ```
+
+## Features
+
+### Graceful Shutdown
+
+It adds the [graceful shutdown](https://trino.io/docs/current/admin/graceful-shutdown.html) feature from Trino such that on a SIGTERM signal to the container, the worker will have a grace period before interrupting active queries.
