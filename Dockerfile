@@ -22,8 +22,8 @@ RUN apt update && \
 RUN wget -c https://github.com/IBM/presto-db2/releases/download/${PRESTO_VERSION}/presto-db2-${PRESTO_VERSION}.zip
 RUN unzip presto-db2-$PRESTO_VERSION.zip && rm -f presto-db2-$PRESTO_VERSION.zip
 
-
-FROM prestosql/presto:$PRESTO_VERSION
+# Consume historial image from Trino
+FROM ghcr.io/trinodb/presto:$PRESTO_VERSION
 
 USER root
 # Update centos packages
