@@ -1,5 +1,4 @@
 .git
 .gitignore
-.travis.yml
 test_config.yaml
 *.zip

@@ -1,22 +1,20 @@
 schemaVersion: "2.0.0"
 fileExistenceTests:
-- name: presto-home
-  path: /usr/lib/presto
+- name: trino-home
+  path: /usr/lib/trino
   uid: 1000
   gid: 1000
-- name: run-presto
-  path: /usr/lib/presto/bin/run-presto
+- name: run-trino
+  path: /usr/lib/trino/bin/run-trino
   permissions: '-rwxr-xr-x'
-- name: presto-connector-db2
-  path: /usr/lib/presto/plugin/db2
+- name: trino-connector-db2
+  path: /usr/lib/trino/plugin/db2
   uid: 1000
   gid: 1000
-- name: presto-db2-*.jar
-  path: /usr/lib/presto/plugin/db2/
+- name: trino-db2-*.jar
+  path: /usr/lib/trino/plugin/db2/
 metadataTest:
   env:
   - key: JAVA_HOME
     value: /usr/lib/jvm/zulu11
   exposedPorts: ["8080"]
-  cmd:
-  - ./run-presto.sh
