@@ -13,24 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PRESTO_VERSION: 347
+      TRINO_VERSION: 354
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: fetch dependency
-      run:  curl -LO https://github.com/IBM/presto-db2/releases/download/$PRESTO_VERSION/presto-db2-$PRESTO_VERSION.zip
-
-    - name: prepare dependency
-      run: unzip presto-db2-${PRESTO_VERSION}.zip
     - name: Build and push Docker images
       uses: docker/build-push-action@v2
       with:
         context: .
-        tags: shawnzhu/prestodb:test-only
-        build-args: PRESTO_VERSION=${{ env.PRESTO_VERSION }}
+        tags: shawnzhu/trino:test-only
+        build-args: TRINO_VERSION=${{ env.TRINO_VERSION }}
 
     - uses: brpaz/structure-tests-action@v1.1.2
       with:
-        image: "shawnzhu/prestodb:test-only"
+        image: "shawnzhu/trino:test-only"
         configFile: test_config.yaml

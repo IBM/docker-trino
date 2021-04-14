@@ -18,5 +18,3 @@ metadataTest:
   - key: JAVA_HOME
     value: /usr/lib/jvm/zulu11
   exposedPorts: ["8080"]
-  cmd:
-  - ./run-trino.sh

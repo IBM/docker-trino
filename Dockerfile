@@ -32,4 +32,4 @@ USER root
 USER trino:trino
 # Add Db2 connector
 COPY --from=builder --chown=trino:trino trino-db2-* /usr/lib/trino/plugin/db2
-COPY run-trino.sh /usr/lib/trino/bin/
+COPY run-trino.sh /usr/lib/trino/bin/run-trino

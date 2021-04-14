@@ -3,22 +3,22 @@
 [![Actions Status](https://github.com/IBM/docker-prestodb/workflows/test/badge.svg)](https://github.com/IBM/docker-prestodb/actions)
 [![Docker Build Statu](https://img.shields.io/docker/build/shawnzhu/prestodb.svg)](https://hub.docker.com/r/shawnzhu/prestodb/)
 
-This is a docker image for [PrestoDB](https://prestosql.io/) with [Db2 connector](https://github.com/IBM/presto-db2/).
+This is a docker image for [Trino](https://trino.io/) with [Db2 connector](https://github.com/IBM/trino-db2/).
 
-**Notice**: it starts to switch the base image from openjdk to the official prestosql container image [`prestosql/presto`](https://hub.docker.com/r/prestosql/presto) since tag `325`.
+**Notice**: it starts to switch the base image from openjdk to the official trino container image [`trinodb/trino`](https://hub.docker.com/r/trinodb/trino) since tag `354`.
 
 ## Build
 
-Run this command to build an image with prestodb release 347 and Db2 connector:
+Run this command to build an image with trino release 354 and Db2 connector:
 
 ```SHELL
-docker build --build-arg PRESTO_VERSION=347 -t "shawnzhu/prestodb:347" .
+docker build --build-arg TRINO_VERSION=354 -t "shawnzhu/trinodb:354" .
 ```
 
 ## Start
 
 ```SHELL
-docker run -d -p 8080:8080 shawnzhu/prestodb:latest
+docker run -d -p 8080:8080 shawnzhu/trino:354
 ```
 
 ## Configuration
@@ -38,7 +38,7 @@ connection-password=mypassword
 Then:
 
 ```SHELL
-docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/presto/default/etc/catalog/db2.properties:ro shawnzhu/prestodb:latest
+docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc/catalog/db2.properties:ro shawnzhu/trino:latest
 ```
 
 ## Features
