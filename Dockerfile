@@ -11,26 +11,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ARG PRESTO_VERSION
+ARG TRINO_VERSION
 
 FROM debian:buster-slim AS builder
-ARG PRESTO_VERSION
+ARG TRINO_VERSION
 
 RUN apt update && \
     apt -y install wget unzip
 
-RUN wget -c https://github.com/IBM/presto-db2/releases/download/${PRESTO_VERSION}/presto-db2-${PRESTO_VERSION}.zip
-RUN unzip presto-db2-$PRESTO_VERSION.zip && rm -f presto-db2-$PRESTO_VERSION.zip
+RUN wget -c https://github.com/IBM/trino-db2/releases/download/${TRINO_VERSION}/trino-db2-${TRINO_VERSION}.zip
+RUN unzip trino-db2-$TRINO_VERSION.zip && rm -f trino-db2-$TRINO_VERSION.zip
 
 # Consume historial image from Trino
-FROM ghcr.io/trinodb/presto:$PRESTO_VERSION
+FROM trinodb/trino:$TRINO_VERSION
 
 USER root
 # Update centos packages
 # RUN dnf upgrade -y && dnf autoremove
 
-USER presto:presto
+USER trino:trino
 # Add Db2 connector
-COPY --from=builder --chown=presto:presto presto-db2-* /usr/lib/presto/plugin/db2
+COPY --from=builder --chown=trino:trino trino-db2-* /usr/lib/trino/plugin/db2
 
-CMD ["./run-presto.sh"]
+CMD ["./run-trino.sh"]
