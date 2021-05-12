@@ -23,7 +23,7 @@ RUN wget -c https://github.com/IBM/trino-db2/releases/download/${TRINO_VERSION}/
 RUN unzip trino-db2-$TRINO_VERSION.zip && rm -f trino-db2-$TRINO_VERSION.zip
 
 RUN wget -c https://github.com/IBM/trino-event-stream/releases/download/${TRINO_VERSION}/trino-event-stream-${TRINO_VERSION}.zip
-RUN unzip trino-event-stream-$TRINO_VERSION.zip && rm -f trino-event-stream-$TRINO_VERSION.zip
+RUN unzip trino-event-stream-${TRINO_VERSION}.zip && rm -f trino-event-stream-${TRINO_VERSION}.zip
 
 # Consume historial image from Trino
 FROM trinodb/trino:$TRINO_VERSION
@@ -35,4 +35,5 @@ USER root
 USER trino:trino
 # Add Db2 connector
 COPY --from=builder --chown=trino:trino trino-db2-* /usr/lib/trino/plugin/db2
+COPY --from=builder --chown=trino:trino trino-event-* /usr/lib/trino/plugin/trino-event-stream
 COPY run-trino.sh /usr/lib/trino/bin/run-trino
