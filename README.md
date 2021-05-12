@@ -41,6 +41,25 @@ Then:
 docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc/catalog/db2.properties:ro shawnzhu/trino:latest
 ```
 
+### Trino Event Streams
+
+
+Given configuration of Trino Event Streams:
+
+```
+# cat event-listener.properties
+connector.name=db2
+connection-url=jdbc:db2://ip:port/database
+connection-user=myuser
+connection-password=mypassword
+```
+
+Then:
+
+```SHELL
+docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc/catalog/db2.properties:ro shawnzhu/trino:latest
+```
+
 ## Features
 
 ### Graceful Shutdown
