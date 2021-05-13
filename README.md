@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/IBM/docker-prestodb/workflows/test/badge.svg)](https://github.com/IBM/docker-prestodb/actions)
 [![Docker Build Statu](https://img.shields.io/docker/build/shawnzhu/prestodb.svg)](https://hub.docker.com/r/shawnzhu/prestodb/)
 
-This is a docker image for [Trino](https://trino.io/) with [Db2 connector](https://github.com/IBM/trino-db2/).
+This is a docker image for [Trino](https://trino.io/) with [Db2 connector](https://github.com/IBM/trino-db2/) and [trino-event-stream](https://github.com/IBM/trino-event-stream).
 
 **Notice**: it starts to switch the base image from openjdk to the official trino container image [`trinodb/trino`](https://hub.docker.com/r/trinodb/trino) since tag `354`.
 
@@ -40,6 +40,20 @@ Then:
 ```SHELL
 docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc/catalog/db2.properties:ro shawnzhu/trino:latest
 ```
+
+### Trino Event Streams
+
+Given configuration of Trino Event Streams:
+
+```
+# cat event-listener.properties
+event-listener.name=event-stream
+bootstrap.servers=broker:9092
+key.serializer=org.apache.kafka.common.serialization.StringSerializer
+value.serializer=org.apache.kafka.common.serialization.StringSerializer
+```
+
+All Trino queries info will be sent to topic `trino.event`. 
 
 ## Features
 
