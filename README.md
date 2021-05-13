@@ -52,6 +52,7 @@ bootstrap.servers=broker:9092
 key.serializer=org.apache.kafka.common.serialization.StringSerializer
 value.serializer=org.apache.kafka.common.serialization.StringSerializer
 ```
+
 All Trino queries info will be sent to topic `trino.event`. 
 
 ## Features
