@@ -43,8 +43,6 @@ docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc
 
 ### Trino Event Streams
 
-Prerequisite: Zookeeper, Broker 
-
 Given configuration of Trino Event Streams:
 
 ```
@@ -54,7 +52,7 @@ bootstrap.servers=broker:9092
 key.serializer=org.apache.kafka.common.serialization.StringSerializer
 value.serializer=org.apache.kafka.common.serialization.StringSerializer
 ```
-All Trino queries info will be sent to topic `trino.event`.  To view message/metrics about the topic, [Kafdrop](https://github.com/obsidiandynamics/kafdrop)) Kafka UI can be used. 
+All Trino queries info will be sent to topic `trino.event`. 
 
 ## Features
 
