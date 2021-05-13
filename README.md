@@ -54,7 +54,7 @@ bootstrap.servers=broker:9092
 key.serializer=org.apache.kafka.common.serialization.StringSerializer
 value.serializer=org.apache.kafka.common.serialization.StringSerializer
 ```
-All Trino queries info will be sent to topic `trino.event`. To view message/metrics about the topic, [Kafdrop](https://github.com/obsidiandynamics/kafdrop)) Kafka UI can be used. 
+All Trino queries info will be sent to topic `trino.event`.  To view message/metrics about the topic, [Kafdrop](https://github.com/obsidiandynamics/kafdrop)) Kafka UI can be used. 
 
 ## Features
 
