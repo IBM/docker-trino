@@ -30,7 +30,7 @@ FROM trinodb/trino:$TRINO_VERSION
 
 USER root
 # Update centos packages
-dnf upgrade -y && dnf autoremove
+RUN dnf upgrade -y && dnf autoremove
 
 USER trino:trino
 # Add Db2 connector
