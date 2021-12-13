@@ -34,7 +34,7 @@ RUN yum update -y
 
 # https://nvd.nist.gov/vuln/detail/CVE-2021-44228
 # Can be removed when 366 is released
-RUN rm -rf /lib/trino/plugin/elasticsearch
+RUN rm -rf /lib/trino/plugin/elasticsearch && rm -rf /lib/trino/plugin/accumulo
 
 USER trino:trino
 # Add Db2 connector
