@@ -29,12 +29,10 @@ RUN unzip trino-event-stream-${TRINO_VERSION}.zip && rm -f trino-event-stream-${
 FROM trinodb/trino:$TRINO_VERSION
 
 USER root
-# Update centos packages
-RUN yum update -y
-
-# https://nvd.nist.gov/vuln/detail/CVE-2021-44228
-# Can be removed when 366 is released
-RUN rm -rf /lib/trino/plugin/elasticsearch && rm -rf /lib/trino/plugin/accumulo && rm -rf /lib/trino/plugin/phoenix5 && rm -rf /lib/trino/plugin/phoenix
+# Update base OS packages
+RUN apt-get clean && \
+    apt-get update && \
+    apt-get upgrade -y
 
 USER trino:trino
 # Add Db2 connector
