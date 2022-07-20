@@ -29,8 +29,10 @@ RUN unzip trino-event-stream-${TRINO_VERSION}.zip && rm -f trino-event-stream-${
 FROM trinodb/trino:$TRINO_VERSION
 
 USER root
-# Update centos packages
-RUN yum update -y
+# Update base OS packages
+RUN apt-get clean && \
+    apt-get update && \
+    apt-get upgrade -y
 
 # https://nvd.nist.gov/vuln/detail/CVE-2021-44228
 # Can be removed when 366 is released
