@@ -41,20 +41,6 @@ Then:
 docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc/catalog/db2.properties:ro shawnzhu/trino:latest
 ```
 
-### Trino Event Streams
-
-Given configuration of Trino Event Streams:
-
-```
-# cat event-listener.properties
-event-listener.name=event-stream
-bootstrap.servers=broker:9092
-key.serializer=org.apache.kafka.common.serialization.StringSerializer
-value.serializer=org.apache.kafka.common.serialization.StringSerializer
-```
-
-All Trino queries info will be sent to topic `trino.event`. 
-
 ## Features
 
 ### Graceful Shutdown
