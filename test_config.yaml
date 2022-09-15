@@ -13,10 +13,6 @@ fileExistenceTests:
   gid: 1000
 - name: trino-db2-*.jar
   path: /usr/lib/trino/plugin/db2/
-- name: trino-event-stream-*.jar 
-  path: /usr/lib/trino/plugin/trino-event-stream
-  uid: 1000
-  gid: 1000
 metadataTest:
   env:
   - key: JAVA_HOME

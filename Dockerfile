@@ -38,5 +38,4 @@ RUN rm -rf /lib/trino/plugin/elasticsearch && rm -rf /lib/trino/plugin/accumulo 
 USER trino:trino
 # Add Db2 connector
 COPY --from=builder --chown=trino:trino trino-db2-* /usr/lib/trino/plugin/db2
-COPY --from=builder --chown=trino:trino trino-event-* /usr/lib/trino/plugin/trino-event-stream
 COPY run-trino.sh /usr/lib/trino/bin/run-trino
