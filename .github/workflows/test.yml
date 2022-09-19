@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      TRINO_VERSION: 395
+      TRINO_VERSION: 396
 
     steps:
     - uses: actions/checkout@v2
