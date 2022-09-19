@@ -16,5 +16,5 @@ fileExistenceTests:
 metadataTest:
   env:
   - key: JAVA_HOME
-    value: /usr/lib/jvm/zulu17
+    value: /opt/java/openjdk
   exposedPorts: ["8080"]
