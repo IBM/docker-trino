@@ -6,7 +6,7 @@ fileExistenceTests:
   gid: 1000
 - name: run-trino
   path: /usr/lib/trino/bin/run-trino
-  permissions: '-rwxr-xr-x'
+  permissions: '-rwxrwxr-x'
 - name: trino-connector-db2
   path: /usr/lib/trino/plugin/db2
   uid: 1000
