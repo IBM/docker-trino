@@ -46,3 +46,4 @@ docker run -d -p 8080:8080 -v /foo/bar/db2.properties:/usr/lib/trino/default/etc
 ### Graceful Shutdown
 
 It adds the [graceful shutdown](https://trino.io/docs/current/admin/graceful-shutdown.html) feature from Trino such that on a SIGTERM signal to the container, the worker will have a grace period before interrupting active queries.
+
