@@ -14,7 +14,7 @@ fileExistenceTests:
 - name: trino-db2-*.jar
   path: /usr/lib/trino/plugin/db2/
 metadataTest:
-  env:
+  envVars:
   - key: JAVA_HOME
     value: /opt/java/openjdk
   exposedPorts: ["8080"]
