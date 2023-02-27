@@ -20,4 +20,3 @@ if [[ ${NODE_ID_EXISTS} != 0 ]] ; then
 fi
 
 exec /usr/lib/trino/bin/launcher run --etc-dir /etc/trino ${NODE_ID} "$@"
-
