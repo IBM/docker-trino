@@ -18,7 +18,7 @@ fileExistenceTests:
   uid: 1000
   gid: 1000
 metadataTest:
-  env:
+  envVars:
   - key: JAVA_HOME
     value: /usr/lib/jvm/zulu17
   exposedPorts: ["8080"]
